@@ -107,9 +107,9 @@ function DriftLayer({
 }
 
 // ── Starfield ─────────────────────────────────────────────
-const STAR_COUNT = 80;
-const COLS = 10;
-const ROWS = 8;
+const STAR_COUNT = 30;
+const COLS = 6;
+const ROWS = 5;
 
 function seededRandom(seed: number) {
   const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453;

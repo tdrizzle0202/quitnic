@@ -10,8 +10,8 @@
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0F1218"
+      "resizeMode": "cover",
+      "backgroundColor": "#000000"
     },
     "ios": {
       "bundleIdentifier": "com.terrykim.puff.app",

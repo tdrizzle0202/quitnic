@@ -216,7 +216,7 @@ export default function PaywallScreen() {
           style={styles.iconHero}
         >
           <Animated.View style={iconAnimatedStyle}>
-            <Image source={APP_ICON} style={styles.appIcon} />
+            <Image source={APP_ICON} style={styles.appIcon} transition={0} />
           </Animated.View>
         </Animated.View>
 

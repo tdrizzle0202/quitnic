@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Animated, { FadeIn, FadeInDown, FadeInUp } from 'react-native-reanimated';
+import { Image } from 'expo-image';
 import { TypewriterText } from '@/components/ui/TypewriterText';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -13,11 +14,18 @@ import { useOnboardingStore } from '@/store/useOnboardingStore';
 import { useUserStore } from '@/store/useUserStore';
 import { FONTS, SPACING, RADIUS } from '@/constants/theme';
 
+const APP_ICON = require('@/assets/icon.png');
+
 export default function AllSet() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const store = useOnboardingStore();
   const displayName = store.name || '';
+
+  // Prefetch paywall icon so it appears instantly on next screen
+  useEffect(() => {
+    Image.prefetch(APP_ICON);
+  }, []);
 
   const handleStart = async () => {
     useUserStore.getState().completeOnboarding({
