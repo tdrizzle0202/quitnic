@@ -13,6 +13,8 @@ import Animated, {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PressableScale } from '@/components/ui/PressableScale';
 import { COLORS } from '@/constants/theme';
+import { AnimatedBackground } from '@/components/ui/AnimatedBackground';
+import { LayoutBackgroundContext } from '@/components/ui/ScreenWrapper';
 
 const ACTIVE_COLOR = COLORS.primary;
 const INACTIVE_COLOR = 'rgba(255,255,255,0.35)';
@@ -155,23 +157,33 @@ export default function TabLayout() {
   );
 
   return (
-    <Tabs
-      tabBar={renderTabBar}
-      screenOptions={{
-        headerShown: false,
-        lazy: true,
-      }}
-    >
-      <Tabs.Screen name="index" />
-      <Tabs.Screen name="progress" />
-      <Tabs.Screen name="sos" />
-      <Tabs.Screen name="profile" />
-    </Tabs>
+    <LayoutBackgroundContext.Provider value={true}>
+      <View style={styles.tabContainer}>
+        <AnimatedBackground />
+        <Tabs
+          tabBar={renderTabBar}
+          screenOptions={{
+            headerShown: false,
+            lazy: true,
+            sceneStyle: { backgroundColor: 'transparent' },
+          }}
+        >
+          <Tabs.Screen name="index" />
+          <Tabs.Screen name="progress" />
+          <Tabs.Screen name="sos" />
+          <Tabs.Screen name="profile" />
+        </Tabs>
+      </View>
+    </LayoutBackgroundContext.Provider>
   );
 }
 
 // ── Styles ───────────────────────────────────────────────
 const styles = StyleSheet.create({
+  tabContainer: {
+    flex: 1,
+    backgroundColor: COLORS.bg,
+  },
   tabBarOuter: {
     position: 'absolute',
     left: 20,

@@ -7,7 +7,30 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { COLORS } from '@/constants/theme';
 import { AnimatedBackground } from './AnimatedBackground';
 
-/** When true, ScreenWrapper skips rendering its own AnimatedBackground. */
+/**
+ * Persistent Background Pattern
+ *
+ * Animated backgrounds (starfield, gradients, etc.) should live at the LAYOUT
+ * level, not per-screen. This keeps the background continuous across navigations
+ * — content slides over it while the background never resets or re-mounts.
+ *
+ * Usage in a _layout.tsx (Stack or Tabs):
+ *
+ *   <LayoutBackgroundContext.Provider value={true}>
+ *     <View style={{ flex: 1, backgroundColor: COLORS.bg }}>
+ *       <AnimatedBackground />
+ *       <Stack screenOptions={{ contentStyle: { backgroundColor: 'transparent' } }}>
+ *         ...
+ *       </Stack>
+ *     </View>
+ *   </LayoutBackgroundContext.Provider>
+ *
+ * For Tabs, use `sceneStyle` instead of `contentStyle`.
+ *
+ * Screens using ScreenWrapper will automatically go transparent.
+ * Screens NOT using ScreenWrapper must remove their own <AnimatedBackground />
+ * and set their container backgroundColor to 'transparent'.
+ */
 export const LayoutBackgroundContext = createContext(false);
 
 interface ScreenWrapperProps {

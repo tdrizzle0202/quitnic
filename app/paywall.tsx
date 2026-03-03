@@ -10,7 +10,7 @@ import {
   ScrollView,
   Linking,
 } from "react-native";
-import { Image } from "expo-image";
+import { CachedImage } from "@/components/CachedImage";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, {
   useSharedValue,
@@ -216,7 +216,7 @@ export default function PaywallScreen() {
           style={styles.iconHero}
         >
           <Animated.View style={iconAnimatedStyle}>
-            <Image source={APP_ICON} style={styles.appIcon} transition={0} />
+            <CachedImage source={APP_ICON} style={styles.appIcon} transition={0} />
           </Animated.View>
         </Animated.View>
 

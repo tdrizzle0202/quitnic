@@ -38,7 +38,6 @@ import {
   RADIUS,
 } from '@/constants/theme';
 import { PressableScale, type HapticType } from '@/components/ui/PressableScale';
-import { AnimatedBackground } from '@/components/ui/AnimatedBackground';
 import {
   useUserStore,
   getDaysSinceQuit,
@@ -257,7 +256,6 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.safe}>
-      <AnimatedBackground />
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={[styles.scrollContent, { paddingTop: insets.top }]}
@@ -265,7 +263,7 @@ export default function HomeScreen() {
       >
         {/* 1. Top Bar */}
         <Animated.View entering={FadeIn.duration(300)} style={styles.topBar}>
-          <Text style={[TYPE.heading, { color: COLORS.text }]}>{name || 'Fein'}</Text>
+          <Text style={[TYPE.heading, { color: COLORS.text }]}>{name ? name.charAt(0).toUpperCase() + name.slice(1) : 'Fein'}</Text>
           <View style={styles.topRight}>
             <PressableScale style={styles.streakPill}>
               <Flame color={COLORS.accent} size={20} />
@@ -360,7 +358,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: BRIGHT.bg,
+    backgroundColor: 'transparent',
   },
   scroll: {
     flex: 1,
