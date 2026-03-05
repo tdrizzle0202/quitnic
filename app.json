@@ -15,7 +15,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.terrykim.puff.app",
-      "buildNumber": "5",
+      "buildNumber": "6",
       "supportsTablet": false,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
