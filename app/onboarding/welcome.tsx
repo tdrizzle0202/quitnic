@@ -133,7 +133,7 @@ export default function Welcome() {
           {/* Rating - appears with button */}
           <View style={[styles.ratingRow, { opacity: phase >= 3 ? 1 : 0 }]}>
             <Text style={styles.ratingStars}>⭐⭐⭐⭐⭐</Text>
-            <Text style={styles.ratingText}>#1 Science-Based Quitting App</Text>
+            <Text style={styles.ratingText}>Top Science-Based Quitting App</Text>
           </View>
         </View>
 

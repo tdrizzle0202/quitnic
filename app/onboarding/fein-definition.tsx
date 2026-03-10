@@ -70,7 +70,7 @@ export default function FeinDefinition() {
 
         <TypewriterText
           text={DEFINITION_TEXT}
-          speed={20}
+          speed={12}
           delay={800}
           style={styles.definition}
           onDone={showButton}

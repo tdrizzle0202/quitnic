@@ -23,15 +23,15 @@ const ORGANS = [
     healthy: 'Pink, elastic tissue with clear airways',
     damaged: 'Blackened with tar, reduced capacity, chronic inflammation',
     severity: 85,
-    fact: 'Smoking destroys the tiny air sacs (alveoli) that transfer oxygen to your blood.',
+    fact: 'Smoking can damage the tiny air sacs (alveoli) that transfer oxygen to your blood.',
   },
   {
     emoji: '🫀',
     name: 'Heart',
     healthy: 'Strong, steady rhythm with clean arteries',
-    damaged: 'Hardened arteries, elevated blood pressure, doubled heart attack risk',
+    damaged: 'Hardened arteries, elevated blood pressure, increased heart attack risk',
     severity: 70,
-    fact: 'Nicotine raises your heart rate by 10-20 BPM and constricts blood vessels.',
+    fact: 'Nicotine can raise your heart rate by 10-20 BPM and constrict blood vessels.',
   },
   {
     emoji: '🦷',
@@ -39,7 +39,7 @@ const ORGANS = [
     healthy: 'White enamel, healthy pink gums',
     damaged: 'Yellow-brown stains, receding gums, increased decay',
     severity: 60,
-    fact: 'Smokers are 3x more likely to lose all their teeth than non-smokers.',
+    fact: 'Smokers may be up to 6x more likely to develop gum disease than non-smokers.',
   },
   {
     emoji: '🧬',
@@ -47,7 +47,7 @@ const ORGANS = [
     healthy: 'Smooth, even tone with good elasticity',
     damaged: 'Premature wrinkles, dull complexion, slow wound healing',
     severity: 50,
-    fact: 'Smoking reduces blood flow to skin by up to 30%, accelerating aging by 10+ years.',
+    fact: 'Smoking may reduce blood flow to your skin, contributing to premature aging.',
   },
 ];
 
@@ -145,6 +145,11 @@ export default function GraphicRealityScreen() {
             </View>
           </Animated.View>
         ))}
+
+        {/* Disclaimer */}
+        <Text style={s.disclaimer}>
+          Based on data from the CDC and American Cancer Society. For informational purposes only — not medical advice. Consult your doctor for guidance.
+        </Text>
 
         {/* CTA Button */}
         <Animated.View entering={FadeInUp.delay(800).duration(400)} style={s.ctaArea}>
@@ -265,5 +270,14 @@ const s = StyleSheet.create({
   ctaText: {
     ...TYPE.subheading,
     color: '#07090E',
+  },
+  disclaimer: {
+    ...TYPE.caption,
+    color: COLORS.textMuted,
+    textAlign: 'center',
+    fontSize: 11,
+    lineHeight: 16,
+    marginTop: SPACING.md,
+    paddingHorizontal: SPACING.md,
   },
 });

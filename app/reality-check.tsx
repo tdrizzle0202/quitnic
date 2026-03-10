@@ -23,14 +23,14 @@ const QUOTE = {
 
 const MILESTONES = [
   { time: '20 min', label: 'Heart rate drops to normal', unlocked: true },
-  { time: '8 hrs', label: 'Carbon monoxide levels halve', unlocked: true },
-  { time: '48 hrs', label: 'Nerve endings start regrowing', unlocked: true },
+  { time: '8 hrs', label: 'Carbon monoxide levels drop to normal', unlocked: true },
+  { time: '48 hrs', label: 'Taste and smell begin to improve', unlocked: true },
   { time: '72 hrs', label: 'Breathing becomes easier', unlocked: true },
-  { time: '2 weeks', label: 'Circulation improves', unlocked: true },
-  { time: '1 month', label: 'Lung function increases 30%', unlocked: false },
-  { time: '3 months', label: 'Cilia regrow in lungs', unlocked: false },
-  { time: '1 year', label: 'Heart disease risk drops 50%', unlocked: false },
-  { time: '5 years', label: 'Stroke risk equals non-smoker', unlocked: false },
+  { time: '2 weeks', label: 'Circulation begins to improve', unlocked: true },
+  { time: '1 month', label: 'Lung function begins to improve', unlocked: false },
+  { time: '3 months', label: 'Coughing and shortness of breath decrease', unlocked: false },
+  { time: '1 year', label: 'Heart disease risk drops by about half', unlocked: false },
+  { time: '5–15 yrs', label: 'Stroke risk may return to non-smoker level', unlocked: false },
 ];
 
 export default function RealityCheckScreen() {
@@ -123,6 +123,11 @@ export default function RealityCheckScreen() {
             </Animated.View>
           ))}
         </View>
+
+        {/* Disclaimer */}
+        <Text style={s.disclaimer}>
+          Based on data from the CDC and American Cancer Society. For informational purposes only — not medical advice. Consult your doctor for guidance.
+        </Text>
       </View>
     </ScreenWrapper>
   );
@@ -227,5 +232,14 @@ const s = StyleSheet.create({
   timelineContent: {
     flex: 1,
     gap: 2,
+  },
+  disclaimer: {
+    ...TYPE.caption,
+    color: COLORS.textMuted,
+    textAlign: 'center',
+    fontSize: 11,
+    lineHeight: 16,
+    marginTop: SPACING.lg,
+    paddingHorizontal: SPACING.md,
   },
 });

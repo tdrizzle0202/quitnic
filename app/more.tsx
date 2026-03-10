@@ -9,7 +9,7 @@ import { COLORS, TYPE, SPACING, RADIUS } from '@/constants/theme';
 
 // ── Action Items ────────────────────────────────────────
 const ACTIONS = [
-  { emoji: '⚙️', title: 'Settings', subtitle: 'Preferences', route: '/settings', comingSoon: false },
+  { emoji: '⚙️', title: 'Settings', subtitle: 'Preferences', route: null, comingSoon: true },
   { emoji: '📤', title: 'Share Progress', subtitle: 'Tell the world', route: '/share-progress', comingSoon: false },
   { emoji: '👥', title: 'Community', subtitle: 'Connect', route: null, comingSoon: true },
   { emoji: '📓', title: 'Journal', subtitle: 'Daily log', route: null, comingSoon: true },

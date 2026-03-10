@@ -26,7 +26,6 @@ import {
   HeartHandshake,
   Wind,
   RotateCcw,
-  MoreHorizontal,
   Timer,
   Flag,
 } from 'lucide-react-native';
@@ -249,10 +248,6 @@ export default function HomeScreen() {
       { text: 'Reset', style: 'destructive', onPress: () => resetStreakAction() },
     ]);
   }, [resetStreakAction]);
-  const handleMore = useCallback(
-    () => router.push('/more' as any),
-    [router],
-  );
 
   return (
     <View style={styles.safe}>
@@ -332,7 +327,6 @@ export default function HomeScreen() {
           <ActionButton icon={HeartHandshake} label="Pledge" onPress={handlePledge} index={0} />
           <ActionButton icon={Wind} label="Breathe" onPress={handleBreathe} index={1} />
           <ActionButton icon={RotateCcw} label="Reset" onPress={handleReset} index={2} haptic="Heavy" />
-          <ActionButton icon={MoreHorizontal} label="More" onPress={handleMore} index={3} />
         </View>
 
         {/* 5. SOS / I'm Feining */}

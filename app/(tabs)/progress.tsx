@@ -40,14 +40,14 @@ const DAY_LABELS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const MOCK_MILESTONES = [
   { id: '1', title: 'Heart rate normalizes', time: '20 min', icon: '❤️', hoursRequired: 0.33, detail: 'Your heart rate and blood pressure have returned to normal.' },
   { id: '2', title: 'Carbon monoxide drops', time: '8 hrs', icon: '🫁', hoursRequired: 8, detail: 'CO levels in your blood have dropped to normal.' },
-  { id: '3', title: 'Nicotine leaves blood', time: '2 days', icon: '🩸', hoursRequired: 48, detail: 'All nicotine has been flushed from your bloodstream.' },
-  { id: '4', title: 'Taste improves', time: '2 days', icon: '👅', hoursRequired: 48, detail: 'Nerve endings regrowing. Food tastes better already.' },
-  { id: '5', title: 'Breathing easier', time: '3 days', icon: '🌬️', hoursRequired: 72, detail: 'Bronchial tubes relaxing. You can breathe deeper.' },
-  { id: '6', title: 'Energy increases', time: '1 week', icon: '⚡', hoursRequired: 168, detail: 'Your body produces more energy without fighting toxins.' },
-  { id: '7', title: 'Circulation improves', time: '2 weeks', icon: '🔄', hoursRequired: 336, detail: 'Blood flows more freely throughout your body.' },
-  { id: '8', title: 'Lung function up 30%', time: '1 month', icon: '💨', hoursRequired: 720, detail: 'Your lungs are healing and working much better.' },
-  { id: '9', title: 'Coughing decreases', time: '3 months', icon: '🤧', hoursRequired: 2160, detail: 'Cilia regrown, clearing mucus naturally.' },
-  { id: '10', title: 'Heart disease risk halves', time: '1 year', icon: '🫀', hoursRequired: 8760, detail: 'Your risk is now half that of a smoker.' },
+  { id: '3', title: 'Nicotine leaves blood', time: '2 days', icon: '🩸', hoursRequired: 48, detail: 'Nicotine has been flushed from your bloodstream.' },
+  { id: '4', title: 'Taste improves', time: '2 days', icon: '👅', hoursRequired: 48, detail: 'Taste and smell begin to improve.' },
+  { id: '5', title: 'Breathing easier', time: '3 days', icon: '🌬️', hoursRequired: 72, detail: 'Bronchial tubes relaxing. You may breathe deeper.' },
+  { id: '6', title: 'Energy increases', time: '1 week', icon: '⚡', hoursRequired: 168, detail: 'Your body may produce more energy without fighting toxins.' },
+  { id: '7', title: 'Circulation improves', time: '2 weeks', icon: '🔄', hoursRequired: 336, detail: 'Blood begins to flow more freely throughout your body.' },
+  { id: '8', title: 'Lung function improves', time: '1 month', icon: '💨', hoursRequired: 720, detail: 'Your lungs are healing and beginning to work better.' },
+  { id: '9', title: 'Coughing decreases', time: '3 months', icon: '🤧', hoursRequired: 2160, detail: 'Cilia regrow, helping clear mucus naturally.' },
+  { id: '10', title: 'Heart disease risk drops', time: '1 year', icon: '🫀', hoursRequired: 8760, detail: 'Your risk may drop by about half compared to a smoker.' },
 ];
 
 const MOCK_TRIGGERS = [
@@ -636,6 +636,11 @@ export default function ProgressScreen() {
         </Text>
         <View style={{ height: SPACING.sm }} />
         <StreakCalendar quitDate={quitDate} />
+
+        <View style={{ height: SPACING.lg }} />
+        <Text style={styles.disclaimer}>
+          Based on data from the CDC and American Cancer Society. For informational purposes only — not medical advice. Consult your doctor for guidance.
+        </Text>
       </View>
     </ScreenWrapper>
   );
@@ -783,5 +788,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.glassBorderBright,
     backgroundColor: COLORS.primary,
+  },
+  disclaimer: {
+    ...TYPE.caption,
+    color: COLORS.textMuted,
+    textAlign: 'center',
+    fontSize: 11,
+    lineHeight: 16,
+    paddingHorizontal: SPACING.md,
   },
 });

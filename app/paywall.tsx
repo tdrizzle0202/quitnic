@@ -256,13 +256,10 @@ export default function PaywallScreen() {
               <View style={styles.planCardContent}>
                 <View style={styles.planLeft}>
                   <Text style={styles.planTitle}>12 months</Text>
-                  <View style={styles.priceRow}>
-                    <Text style={styles.originalPrice}>$79.99/yr</Text>
-                    <Text style={styles.discountedPrice}>{annualPrice}/yr</Text>
-                  </View>
+                  <Text style={styles.billedAmount}>{annualPrice}/yr</Text>
                 </View>
                 <View style={styles.planRight}>
-                  <Text style={styles.perMonth}>{annualMonthly}</Text>
+                  <Text style={styles.calculatedPrice}>{annualMonthly}</Text>
                 </View>
               </View>
             </PressableScale>
@@ -284,7 +281,7 @@ export default function PaywallScreen() {
                 <Text style={styles.planSubtext}>One-time purchase</Text>
               </View>
               <View style={styles.planRight}>
-                <Text style={styles.perMonth}>{lifetimePrice}</Text>
+                <Text style={styles.billedAmount}>{lifetimePrice}</Text>
               </View>
             </View>
           </PressableScale>
@@ -306,12 +303,12 @@ export default function PaywallScreen() {
         </PressableScale>
 
         <PressableScale
-          style={[styles.continueButton, purchasing && styles.buttonDisabled]}
+          style={[styles.continueButton, (purchasing || loading) && styles.buttonDisabled]}
           onPress={handlePurchase}
-          disabled={purchasing}
+          disabled={purchasing || loading}
           haptic="Medium"
         >
-          {purchasing ? (
+          {purchasing || loading ? (
             <ActivityIndicator color={COLORS.bg} size="small" />
           ) : (
             <Text style={styles.continueButtonText}>Start my change today</Text>
@@ -443,27 +440,17 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     marginBottom: 2,
   },
-  priceRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: SPACING.sm,
-  },
-  originalPrice: {
-    ...TYPE.caption,
-    color: COLORS.textSecondary,
-    textDecorationLine: "line-through",
-  },
-  discountedPrice: {
-    ...TYPE.caption,
+  billedAmount: {
+    ...TYPE.subheading,
     color: COLORS.primary,
   },
   planSubtext: {
     ...TYPE.caption,
     color: COLORS.textSecondary,
   },
-  perMonth: {
-    ...TYPE.subheading,
-    color: COLORS.text,
+  calculatedPrice: {
+    ...TYPE.caption,
+    color: COLORS.textSecondary,
   },
   flex: {
     flex: 1,

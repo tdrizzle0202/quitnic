@@ -21,6 +21,8 @@ import {
   User,
   Camera,
   RefreshCw,
+  CreditCard,
+  Trash2,
 } from 'lucide-react-native';
 import { PressableScale, type HapticType } from '@/components/ui/PressableScale';
 import { ScreenWrapper } from '@/components/ui/ScreenWrapper';
@@ -221,6 +223,31 @@ export default function ProfileScreen() {
                 },
               ])
             }
+          />
+          <SettingsRow
+            label="Delete Account"
+            leftIcon={<Trash2 size={18} color={COLORS.danger} />}
+            labelColor={COLORS.danger}
+            showChevron={false}
+            haptic="Heavy"
+            onPress={() =>
+              Alert.alert(
+                'Delete Account?',
+                'This will permanently delete all your data including your streak, settings, and progress. This action cannot be undone.',
+                [
+                  { text: 'Cancel' },
+                  {
+                    text: 'Delete',
+                    style: 'destructive',
+                    onPress: async () => {
+                      clearAllData();
+                      await AsyncStorage.clear();
+                      router.replace('/onboarding/welcome' as any);
+                    },
+                  },
+                ],
+              )
+            }
             isLast
           />
         </GlassGroup>
@@ -257,6 +284,11 @@ export default function ProfileScreen() {
               <FileText size={18} color={COLORS.textSecondary} />
             }
             onPress={() => Linking.openURL('https://www.apple.com/legal/internet-services/itunes/dev/stdeula/')}
+          />
+          <SettingsRow
+            label="Manage Subscription"
+            leftIcon={<CreditCard size={18} color={COLORS.textSecondary} />}
+            onPress={() => Linking.openURL('https://apps.apple.com/account/subscriptions')}
           />
           <SettingsRow
             label="Restore Purchases"

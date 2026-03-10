@@ -26,7 +26,7 @@ const ONBOARDING_IMAGES = [
 const IMAGE_GAP = 10;
 
 const TERMS_URL = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
-const PRIVACY_URL = "https://heightai.netlify.app/privacy.html";
+const PRIVACY_URL = "https://feinapp.netlify.app";
 
 export default function LandingScreen() {
   const hasPro = useProStatusStore((state) => state.hasPro);

@@ -19,7 +19,7 @@ export default function ShareProgressScreen() {
   const handleShare = async () => {
     try {
       await Share.share({
-        message: `I've been nicotine-free for ${daysFree} days with Fein! $${moneySaved} saved. Join me: feinapp.com`,
+        message: `I've been nicotine-free for ${daysFree} days with Fein! $${moneySaved} saved. Join me: feinapp.netlify.app`,
       });
     } catch (error) {
       // user cancelled or share failed — do nothing
@@ -68,7 +68,7 @@ export default function ShareProgressScreen() {
           <View style={{ height: SPACING.lg }} />
 
           {/* Watermark */}
-          <Text style={s.watermark}>feinapp.com</Text>
+          <Text style={s.watermark}>feinapp.netlify.app</Text>
         </Animated.View>
 
         <View style={{ height: SPACING.xl }} />
